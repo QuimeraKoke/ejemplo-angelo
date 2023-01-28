@@ -1,0 +1,10 @@
+sudo apt-get update
+sudo apt-get install -y ca-certificates curl gnupg lsb-release unzip
+curl -fsSL https://get.docker.com -o get-docker.sh
+DRY_RUN=1 sudo sh ./get-docker.sh
+sudo usermod -aG docker $USER
+sudo systemctl enable docker.service
+sudo systemctl enable containerd.service
+sudo apt-get install docker-compose-plugin
+docker compose version
+newgrp docker
